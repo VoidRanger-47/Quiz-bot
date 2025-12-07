@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Quiz Bot</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- app styles -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>AI Quiz Bot</h1>
+      <p class="muted">Practice + instant explanations</p>
+    </div>
+    <div class="controls">
+      <label class="control-inline">
+        <span>Questions</span>
+        <input id="numQuestions" type="number" min="1" max="200" value="20" />
+      </label>
+      <button id="start" class="btn primary">Start Quiz</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="scoreboard" aria-live="polite">
+      <div class="score-header">Scoreboard</div>
+      <div class="score-row"><span>Total</span><strong id="sb-total">0</strong></div>
+      <div class="score-row"><span>Correct</span><strong id="sb-correct">0</strong></div>
+      <div class="score-row"><span>Accuracy</span><strong id="sb-pct">0%</strong></div>
+      <div class="score-row"><span>Loaded</span><strong id="loaded-count">0</strong></div>
+      <div class="score-actions">
+        <button id="resetScore" class="btn">Reset</button>
+        <button id="clearQuiz" class="btn">Clear</button>
+      </div>
+    </aside>
+
+    <section class="quiz-area">
+      <div class="status-row">
+        <div id="status" class="muted">Checking server status...</div>
+        <div class="progress-wrap" aria-hidden="false">
+          <div id="progressBar" class="progress">
+            <div id="progressFill" class="progress-fill" style="width:0%"></div>
+          </div>
+          <div id="progressText" class="muted small">0 / 0 answered</div>
+        </div>
+      </div>
+
+      <div id="quiz" class="quiz-grid">
+        <!-- questions will be rendered here as modern cards -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer muted">Built for your AI project — instant explanations on wrong answers.</footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
